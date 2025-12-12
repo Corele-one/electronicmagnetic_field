@@ -14,7 +14,7 @@ b = ra^2/d;%镜像电荷的位置
 r1 = sqrt((X - d).^2 + Y.^2); %点电荷到场点的距离
 r2 = sqrt((X - b).^2 + Y.^2); %镜像电荷到场点的距离
 U = k*q1./r1 + k*q2./r2;
-U(sqrt(X.^2 + Y.^2) <= ra*1.2) = 0; %绘制出导体球
+U(sqrt(X.^2 + Y.^2) <= ra*0.8) = 0; %绘制出导体球
 u0 = k*q1./ra + k*q2./ra; %基准电势，作为之后绘制等势线的参考尺度
 u = linspace(-u0,u0,15);
 c = contour(X,Y,U,u,'--');
@@ -40,11 +40,11 @@ x = ra*cos(theta);
 y = ra*sin(theta);
 plot(x,y,'-');
 axis equal %使x轴和y轴的单位长度相等，确保绘制的图形是一个圆
-% fill(a,b,'k');%画出接地导体球，‘k’指黑色
+fill(x,y,'w');%画出接地导体球，‘k’指黑色
 %绘制球外电荷
 plot(d,0,'ro',d,0,'r+','markersize',10,'linewidth',2);%‘r0’指红色的原点，‘r+’指红色的加号
 plot(b,0,'bo','markersize',10,'linewidth',2);
-text(b-0.0025,0.00025, '—', 'Color', 'b', 'FontSize', 15, 'FontWeight', 'bold');
+text(0.0032,0.0004, '—', 'Color', 'b', 'FontSize', 13, 'FontWeight', 'bold');
 %绘制接地符号
 plot([-ra*1.02+0.0045,-ra*1.1],[-0.008,-0.008],'b','LineWidth',2)
 plot([-ra*1.1,-ra*1.1],[-0.008,-0.012],'b','LineWidth',2);
